@@ -4,7 +4,7 @@ import App from './App';
 
 import './index.css';
 
-var moviesData = [
+let moviesData = [
   {
     id: 1,
     title: 'The Shawshank Redemption',

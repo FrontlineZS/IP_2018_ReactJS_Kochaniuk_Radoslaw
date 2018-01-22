@@ -4,8 +4,27 @@ import ListItem from './components/ListItem';
 import './App.css';
 
 export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      // moviesData: null
+      moviesData: this.props.moviesData
+    };
+  }
+
+  componentDidMount() {
+    if (localStorage.getItem('movies') === null) {
+      localStorage.setItem('movies', JSON.stringify(this.state.moviesData));
+    } else {
+      this.setState({
+        moviesData: JSON.parse(localStorage.getItem('movies'))
+      });
+    }
+  }
+
   render() {
-    let moviesData = this.props.moviesData;
+    let moviesData = this.state.moviesData;
 
     let listItems = moviesData.map(movieObj => {
       return (
