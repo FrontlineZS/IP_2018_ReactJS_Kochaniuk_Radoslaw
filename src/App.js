@@ -8,14 +8,13 @@ export default class App extends React.Component {
     super(props);
 
     this.state = {
-      // moviesData: null
-      moviesData: this.props.moviesData
+      moviesData: null
     };
   }
 
-  componentDidMount() {
+  componentWillMount() {
     if (localStorage.getItem('movies') === null) {
-      localStorage.setItem('movies', JSON.stringify(this.state.moviesData));
+      localStorage.setItem('movies', JSON.stringify(this.props.moviesData));
     } else {
       this.setState({
         moviesData: JSON.parse(localStorage.getItem('movies'))

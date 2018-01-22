@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import Form from './components/Form/Form';
 
 import './index.css';
 
@@ -74,3 +75,5 @@ ReactDOM.render(
   <App moviesData={moviesData} />,
   document.getElementById('moviesListContainer')
 );
+
+ReactDOM.render(<Form />, document.getElementById('form'));
