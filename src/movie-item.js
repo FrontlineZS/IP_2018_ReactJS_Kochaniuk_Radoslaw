@@ -1,7 +1,7 @@
 import React from 'react';
-import MovieButton from './MovieButton';
+import MovieButton from './movie-button';
 
-export default class ListItem extends React.Component {
+export default class MovieItem extends React.Component {
   render() {
     return (
       <li id="movie-element">
@@ -13,7 +13,11 @@ export default class ListItem extends React.Component {
           <p>{this.props.summary}</p>
           <p>
             Have I seen ?{' '}
-            <MovieButton id={this.props.id} isSeen={this.props.seen} />
+            <MovieButton
+              id={this.props.id}
+              isSeen={this.props.seen}
+              toggleOnClick={this.props.toggleOnClick}
+            />
           </p>
         </div>
       </li>

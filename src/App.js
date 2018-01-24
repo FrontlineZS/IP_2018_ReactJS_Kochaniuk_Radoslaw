@@ -1,5 +1,5 @@
 import React from 'react';
-import ListItem from './components/ListItem';
+import MovieList from './movie-list';
 
 import './App.css';
 
@@ -8,37 +8,28 @@ export default class App extends React.Component {
     super(props);
 
     this.state = {
-      moviesData: null
+      movies: this.props.movies
     };
-  }
 
-  componentWillMount() {
-    if (localStorage.getItem('movies') === null) {
-      localStorage.setItem('movies', JSON.stringify(this.props.moviesData));
-    } else {
-      this.setState({
-        moviesData: JSON.parse(localStorage.getItem('movies'))
-      });
-    }
+    this._toggleIsSeen = this._toggleIsSeen.bind(this);
   }
 
   render() {
-    let moviesData = this.state.moviesData;
+    return (
+      <MovieList movies={this.state.movies} toggleIsSeen={this._toggleIsSeen} />
+    );
+  }
 
-    let listItems = moviesData.map(movieObj => {
-      return (
-        <ListItem
-          key={movieObj.id}
-          id={movieObj.id}
-          title={movieObj.title}
-          year={movieObj.year}
-          genre={movieObj.genre}
-          summary={movieObj.summary}
-          seen={movieObj.seen}
-        />
-      );
-    });
+  _toggleIsSeen(id) {
+    console.log(this.state.movies);
+    // const movies = this.state.movies.slice();
+    // const movie = movies.find((movie) => movie.id === id)
+    // movie.seen = movie.seen === 'T' ? movie.seen = 'F' : movie.seen = 'T'
 
-    return <ul id="moviesList">{listItems}</ul>;
+    // this.setState({movies: movies})
+
+    // this.myLocalStorage.set(id, {
+    //   seen: seen
+    // })
   }
 }

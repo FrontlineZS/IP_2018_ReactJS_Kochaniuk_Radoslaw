@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import Form from './components/Form/Form';
+// import Form from './components/Form/Form';
 
 import './index.css';
 
@@ -34,7 +34,7 @@ let moviesData = [
     seen: 'T'
   },
   {
-    id: 5,
+    id: 4,
     title: '12 Angry Men',
     year: 1957,
     genre: 'drama',
@@ -43,7 +43,7 @@ let moviesData = [
     seen: 'F'
   },
   {
-    id: 8,
+    id: 5,
     title: "Schindler's List",
     year: 1993,
     genre: 'biography',
@@ -52,7 +52,7 @@ let moviesData = [
     seen: 'F'
   },
   {
-    id: 13,
+    id: 6,
     title: 'Pulp Fiction',
     year: 1994,
     genre: 'crime',
@@ -61,7 +61,7 @@ let moviesData = [
     seen: 'T'
   },
   {
-    id: 21,
+    id: 7,
     title: 'The Good, the Bad and the Ugly',
     year: 1966,
     genre: 'western',
@@ -72,8 +72,8 @@ let moviesData = [
 ];
 
 ReactDOM.render(
-  <App moviesData={moviesData} />,
+  <App movies={moviesData} />,
   document.getElementById('moviesListContainer')
 );
 
-ReactDOM.render(<Form />, document.getElementById('form'));
+// ReactDOM.render(<Form />, document.getElementById('form'));
