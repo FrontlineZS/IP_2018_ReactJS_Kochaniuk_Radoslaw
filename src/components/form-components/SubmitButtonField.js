@@ -1,8 +1,6 @@
 import React from 'react';
 
 export default class SubmitButtonField extends React.Component {
-  onChange(event) {}
-
   render() {
     return (
       <li>

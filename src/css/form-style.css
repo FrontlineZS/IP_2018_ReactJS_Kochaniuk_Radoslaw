@@ -2,7 +2,6 @@
   margin-top: 100px;
   margin-left: auto;
   margin-right: auto;
-  width: 54%;
 }
 
 .add-new-movie-form h2,
@@ -107,7 +106,6 @@
 
 #add-new-movie-form button {
   background-color: #68b12f;
-  background: linear-gradient(top, #68b12f, #50911e);
   border: 1px solid #509111;
   border-bottom: 1px solid #5b992b;
   border-radius: 3px;
@@ -131,19 +129,19 @@
 
 input:required,
 select:required {
-  background: #fff url(img/red-asterisk.png) no-repeat 98% center;
+  background: #fff url(../img/red-asterisk.png) no-repeat 98% center;
 }
 
 #add-new-movie-form input:focus:invalid,
 #add-new-movie-form select:focus:invalid {
-  background: #fff url(img/_invalid.png) no-repeat 98% center;
+  background: #fff url(../img/_invalid.png) no-repeat 98% center;
   box-shadow: 0 0 5px #d45252;
   border-color: #b03535;
 }
 
 #add-new-movie-form input:focus:valid,
 #add-new-movie-form select:focus:valid {
-  background: #fff url(img/_valid.png) no-repeat 98% center;
+  background: #fff url(../img/_valid.png) no-repeat 98% center;
   box-shadow: 0 0 5px #5cd053;
   border-color: #28921f;
 }

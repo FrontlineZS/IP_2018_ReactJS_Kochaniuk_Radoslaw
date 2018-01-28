@@ -1,7 +1,19 @@
 import React from 'react';
 
 export default class YearField extends React.Component {
-  onChange(event) {}
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      value: ''
+    };
+  }
+
+  _onChange(event) {
+    this.setState({
+      value: event.target.value
+    });
+  }
 
   render() {
     return (
@@ -11,7 +23,7 @@ export default class YearField extends React.Component {
           id="year"
           type="text"
           name="year"
-          onChange={this.onChange}
+          onChange={this._onChange.bind(this)}
           required
           pattern="^\d{4}$"
         />

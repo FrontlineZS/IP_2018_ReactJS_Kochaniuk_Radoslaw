@@ -1,0 +1,75 @@
+body {
+  font: 14px/21px 'Lucida Sans', sans-serif;
+  margin: 0;
+}
+
+button:focus {
+  outline: 0;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.movies-counters-container {
+  text-align: right;
+  height: 80px;
+  padding-top: 20px;
+}
+
+.movies-counters-container__paragraph {
+  margin-right: 15px;
+}
+
+.movies-counters-container__paragraph:first-of-type {
+  margin-top: 0;
+}
+
+.movies-counters-container__span {
+  padding: 10px;
+  font-weight: bold;
+}
+
+.movies-list-container,
+.form-container {
+  max-width: 1000px;
+  width: 60%;
+  margin: 0 auto;
+}
+
+.form-container {
+  margin-top: 100px;
+}
+
+.movie-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.movie-list__movie-item {
+  border: solid 2px #ccc;
+  margin: 0 0 10px 0;
+  padding: 15px 15px 15px 15px;
+  border-radius: 5px;
+}
+
+.movie-list__movie-item:hover {
+  border-color: #aaa;
+}
+
+.btn {
+  width: 32px;
+  height: 32px;
+  margin-left: 20px;
+  background-color: #fff;
+  border: none;
+}
+
+.btn--seen {
+  background-image: url('../img/seen.png');
+}
+
+.btn--not-seen {
+  background-image: url('../img/not-seen.png');
+}

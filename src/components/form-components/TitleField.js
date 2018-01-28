@@ -1,7 +1,20 @@
 import React from 'react';
 
 export default class TitleField extends React.Component {
-  onChange(event) {}
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      value: '',
+      valid: true
+    };
+  }
+
+  _onChange(event) {
+    this.setState({
+      value: event.target.value
+    });
+  }
 
   render() {
     return (
@@ -11,7 +24,7 @@ export default class TitleField extends React.Component {
           id="title"
           name="title"
           type="text"
-          onChange={this.onChange}
+          onChange={this._onChange.bind(this)}
           required
         />
       </li>

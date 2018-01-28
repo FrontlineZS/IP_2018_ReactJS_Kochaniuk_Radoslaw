@@ -1,10 +1,10 @@
 import React from 'react';
-import MovieButton from './movie-button';
+import MovieButton from './MovieButton';
 
 export default class MovieItem extends React.Component {
   render() {
     return (
-      <li id="movie-element">
+      <li id="movie-element" className="movie-list__movie-item">
         <div id={this.props.id} className="container-div">
           <div>
             {this.props.title} -- {this.props.year}
