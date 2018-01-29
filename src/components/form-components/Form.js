@@ -48,44 +48,66 @@ export default class Form extends React.Component {
     const genreValue = this.refs.genreField.state.value;
     const summaryValue = this.refs.summaryField.state.value;
 
-    if (titleValue === '') {
-      alert('Title must be unique');
-      return;
-    } else if (
-      movies.filter(
-        movie => movie.title.toLowerCase() === titleValue.trim().toLowerCase()
-      ).length === 1
+    _validateTitleField();
+    _validateYearField();
+    _validateGenreField();
+
+    if (
+      _validateTitleField() &&
+      _validateYearField() &&
+      _validateGenreField()
     ) {
-      alert('Title must be filled out, also should be unique');
-      return;
+      const newMovie = {
+        id: id,
+        title: _capitalizeFirstLetter(titleValue),
+        year: parseInt(yearValue, 10),
+        genre: genreValue,
+        summary: summaryValue
+      };
+
+      this.props.addNewMovie(newMovie);
+      alert(
+        `Success! The movie "${newMovie.title}" will be added to the list.`
+      );
+      document.getElementById('add-new-movie-form').reset();
+
+      function _capitalizeFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+      }
     }
 
-    if (yearValue === '') {
-      alert('Year must be filled out');
-      return;
-    } else if (!/^\d{4}$/.exec(yearValue)) {
-      alert('Year must contain four digits e.g. 1992');
-      return;
+    function _validateTitleField() {
+      if (titleValue === '') {
+        alert('Title must be unique');
+        return;
+      } else if (
+        movies.filter(
+          movie => movie.title.toLowerCase() === titleValue.trim().toLowerCase()
+        ).length === 1
+      ) {
+        alert('Title must be filled out, also should be unique');
+        return;
+      }
+      return true;
     }
+    function _validateYearField() {
+      if (yearValue === '') {
+        alert('Year must be filled out');
+        return;
+      } else if (!/^\d{4}$/.exec(yearValue)) {
+        alert('Year must contain four digits e.g. 1992');
+        return;
+      }
 
-    if (genreValue === '') {
-      alert('Genre must be filled out, please choose one');
-      return;
+      return true;
     }
+    function _validateGenreField() {
+      if (genreValue === '') {
+        alert('Genre must be filled out, please choose one');
+        return;
+      }
 
-    const newMovie = {
-      id: id,
-      title: capitalizeFirstLetter(titleValue),
-      year: parseInt(yearValue, 10),
-      genre: genreValue,
-      summary: summaryValue
-    };
-
-    function capitalizeFirstLetter(string) {
-      return string.charAt(0).toUpperCase() + string.slice(1);
+      return true;
     }
-
-    document.getElementById('add-new-movie-form').reset();
-    this.props.addNewMovie(newMovie);
   }
 }

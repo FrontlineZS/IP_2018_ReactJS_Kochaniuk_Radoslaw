@@ -28,6 +28,7 @@ export default class GenreField extends React.Component {
           <option value="" />
           <option value="action">Action</option>
           <option value="adventure">Adventure</option>
+          <option value="biography">Biography</option>
           <option value="comedy">Comedy</option>
           <option value="crime">Crime</option>
           <option value="drama">Drama</option>
